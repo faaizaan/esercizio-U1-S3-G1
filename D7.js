@@ -2,22 +2,51 @@
   Scrivi una funzione per concatenare due stringhe ricevute come parametri, selezionando solamente i primi 2 caratteri della
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
-function concat(string1, string2) {
-  return string1.
+
+function concat(str1, str2) {
+  // return (str1.slice(0, 2) + str2.slice(-4, -1)).ToUpperCase();
+  return String(str1).toUpperCase().slice(0, 2) + " " + String(str2).toUpperCase().slice(-4, -1);
 }
+console.log(concat("ciao", "ciao."));
 
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
+function arrayNum() {
+  const array = [];
+  for (let i = 0; i < 10; i++) {
+    array.push(Math.floor(Math.random() * 101));
+  }
+  return array;
+}
+
+const arrayNumeri = arrayNum();
+console.log(arrayNumeri);
 
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
+const NumeriPari = arrayNumeri.filter((number) => number);
+
+const numeri = [10, 21, 18, 29, 38, 10, 2, 3, 7, 9, 19, 19, 27];
+function soloNumeriPari() {
+  const numeriPari = numeri.filter((number) => number % 2 === 0);
+  return numeriPari;
+}
+console.log(soloNumeriPari());
+
+// const arrayDiNum = [12, 11, 14, 17, 33, 45, 65, 56, 46, 78, 87];
+// const soloNumPari = arrayDiNum.filter(numPari);
+// function numPari(num) {
+//   return num % 2 === 0;
+// }
 
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-
+let somma = 0;
+numeri.forEach((number) => (somma += number));
+console.log(somma);
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
@@ -25,15 +54,39 @@ function concat(string1, string2) {
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
+// function nuoviNumeri(n, a = []) {
+//   const nuovoArrayDiNum = a.map((number) => number * n);
+//   return nuovoArrayDiNum;
+// }
+// console.log(nuoviNumeri(5, numeri));
+
+const numberNew = numeri.map((number) => number * 2);
+console.log(numberNew);
 
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
+const stringhe = ["ciao", "sopra", "tutto", "addio", "bdsbsda"];
+const lunghezzaStringhe = stringhe.map((number) => stringhe.length[number]);
+console.log(lunghezzaStringhe);
 
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+const dispari = [];
+function numeriDispari(n = []) {
+  for (let i = 0; i < n.length; i++) {
+    const num = n[i];
+
+    if (num % 2 !== 0) {
+      dispari.push(num);
+    }
+    return dispari;
+  }
+}
+
+console.log(numeriDispari(numeri));
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
